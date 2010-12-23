@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+   <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+   <link rel="stylesheet" href="/css/publications.css" type="text/css" />
+   <title>{{ @page.title }}</title>
+</head>
+<body>
+
+<h1> {{@page.title}} </h1>
+{{ @content }}
+
+<script>
+var bqs = document.getElementsByTagName("blockquote");
+for(var i = 0; i < bqs.length; i++) {
+  bqs[i].style.display = "none";
+  var ab = document.createElement('a');
+  ab.setAttribute('href', '#');
+  ab.setAttribute('onClick', 'toggleBq('+i+')');
+  ab.appendChild(document.createTextNode("[abstract]"));
+  bqs[i].parentNode.insertBefore(ab,bqs[i]);
+}
+function toggleBq(i) {
+  if (bqs[i].style.display == "none")  
+    bqs[i].style.display = "block";
+  else
+    bqs[i].style.display = "none";
+}
+</script>
+
+</body>
+</html>

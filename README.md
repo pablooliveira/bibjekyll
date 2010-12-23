@@ -9,8 +9,15 @@ Setup
 -----
 
 * Install [bibtex2html](http://www.lri.fr/~filliatr/bibtex2html/). 
-* Copy bibtex.rb and style.bst on your _plugins directory. 
+* Copy bibtex.rb and style.bst to your plugins/ directory. 
 * Edit bibtex.rb to tweak the options that are passed to bibtex2html. 
+
+Example
+-------
+You can find a short usage example inside the example/ directory
+(The actual pdf files are missing, so the links will be broken).
+This code is what I use (with some css minor differences) to generate
+my (publication list)[www.sifflez.org/publications].
 
 Limitations
 -----------
