@@ -11,7 +11,8 @@ Setup
 
 * Install [bibtex2html](http://www.lri.fr/~filliatr/bibtex2html/). 
 * Copy `bibtex.rb` and `style.bst` to your `_plugins/` directory. 
-* Edit `bibtex.rb` to tweak the options that are passed to bibtex2html. 
+* Edit `bibtex.rb` to tweak the options that are passed to `bibtex2html`.
+* Edit `style.bst` to suit your needs or replace it with any `.bst` file.
 
 Example
 -------
