@@ -26,13 +26,9 @@ module Jekyll
       @nodelist ||= []
       @nodelist.clear
       while token = tokens.shift
-        if token =~ IsTag and token =~ FullToken
-          # if we found the proper block delimitor just end parsing here and let the outer block
-          # proceed
-          if block_delimiter == $1
+        if token =~ IsTag and token =~ FullToken and block_delimiter == $1
             end_tag
             return
-          end
         else
           @nodelist << token
         end
