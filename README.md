@@ -13,8 +13,8 @@ Setup
 -----
 
 * Install [bibtex2html](http://www.lri.fr/~filliatr/bibtex2html/). 
-* Copy `bibtex.rb` to your `_plugins/` directory. 
-* Edit `bibtex.rb` to tweak the options that are passed to `bibtex2html`.
+* Copy `bibjekyll.rb` to your `_plugins/` directory. 
+* Edit `bibjekyll.rb` to tweak the options that are passed to `bibtex2html`.
 * A default `style.bst` is provided. You can edit it to suit your needs or replace 
   it with any `.bst` file.
 
