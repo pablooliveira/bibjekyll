@@ -15,11 +15,6 @@ module Jekyll
 
   class BibtexBlock < Liquid::Block
     # The options that are passed to bibtex2html
-    # BEWARE :
-    #  * if the option -nobibsource is USED, you can put as MANY {% bibtex %}
-    #    blocks as you like in the same source file.
-    #  * if the option -nobibsource is NOT USED, you can only put a SINGLE
-    #    {% bibtex %} block per source file.
     Options = "-nofooter -noheader -use-table -nokeywords -nokeys -nodoc"
 
     def initialize(tag_name, style, tokens)
@@ -60,18 +55,25 @@ module Jekyll
       Dir.chdir(dirname) do
         basename = File.basename(file).split('.')[-2]
         outname = basename + ".html"
-
+        bibsource = basename + "_bib.html"
         # write the content of the {% bibtex %} block to temp
         temp = basename + ".bib"
         File.open(temp, 'w') {|f| f.write(content)}
 
+        # If a previous bibsource file exists, we backup its content.
+        if File.exists?(bibsource)
+          backup = IO.read(bibsource)
+        else
+          backup = ""
+        end
+
         # call bibtex2html
         system("bibtex2html #{Options} -s #{stylepath} -o #{basename} #{temp}")
-        # XXX
-        # If the option -nobibsource is NOT USED, bibtex2html will create an
-        # additional file called {basename + "_bib.html"} containing the bib
-        # source. When multiple {% bibtex %} blocks are used in the same source,
-        # these additional files are overwritten ...
+
+        # When appropriate merge the new and old bibsource files.
+        if File.exists?(bibsource)
+          File.open(temp, 'a') {|f| f.write(backup)}
+        end
 
         File.delete(temp)
 
@@ -81,6 +83,4 @@ module Jekyll
     end
   end
 end
-
-
 Liquid::Template.register_tag('bibtex', Jekyll::BibtexBlock)

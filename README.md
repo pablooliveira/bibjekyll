@@ -28,14 +28,9 @@ my own [publication list](http://www.sifflez.org/publications).
 Limitations
 -----------
 
-When the option `-nobibsource` is *not used*, 
-`bibtex2html` generates two html files: the first contains
-an html bibliography list and the second contains the
-original bib entries.  It also links the bibliography entries with the
-bib excerpts.
-
-If you need this feature and decide to *not use* `-nobibsource`, then you can
-only put one `{% bibtex %}` block per file. This may change in the future. 
+The options that are passed to `bibtex2html` can only be changed 
+in the plugin source. We should be able to change them per bibtex
+block.
 
 License
 -------
