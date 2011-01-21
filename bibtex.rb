@@ -6,8 +6,14 @@
 # {% endbibtex %}
 
 module Jekyll
-  class BibtexBlock < Liquid::Block
+  # Workaround for commit 5b680f8dd80aac1 in jekyll (remove orphaned files in destination)
+  # that deletes all the files created by plugins.
+  class Site
+    def cleanup
+    end
+  end
 
+  class BibtexBlock < Liquid::Block
     # The options that are passed to bibtex2html
     # BEWARE :
     #  * if the option -nobibsource is USED, you can put as MANY {% bibtex %}
