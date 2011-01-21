@@ -2,17 +2,21 @@ This plugin interfaces [bibtex2html](http://www.lri.fr/~filliatr/bibtex2html/) w
 to generate an html bibliography list from bibtex entries.
 For this to work, the bibtex entries must be enclosed in a special liquid block:
 
-    {% bibtex %}
+    {% bibtex _plugins/style.bst %}
       ....
     {% endbibtex %}
+
+where `_plugins/style.bst` is a bibtex style file (which you can, of course, 
+rename or move to another directory).
 
 Setup
 -----
 
 * Install [bibtex2html](http://www.lri.fr/~filliatr/bibtex2html/). 
-* Copy `bibtex.rb` and `style.bst` to your `_plugins/` directory. 
+* Copy `bibtex.rb` to your `_plugins/` directory. 
 * Edit `bibtex.rb` to tweak the options that are passed to `bibtex2html`.
-* Edit `style.bst` to suit your needs or replace it with any `.bst` file.
+* A default `style.bst` is provided. You can edit it to suit your needs or replace 
+  it with any `.bst` file.
 
 Example
 -------

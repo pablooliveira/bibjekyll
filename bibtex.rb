@@ -1,7 +1,7 @@
 # This plugin interfaces bibtex2html (http://www.lri.fr/~filliatr/bibtex2html/) with Jekyll
 # to generate an html bibliography list from bibtex entries.
 # For this to work, the bibtex entries must be enclosed in a special liquid block:
-# {% bibtex %}
+# {% bibtex style.bst %}
 #   ....
 # {% endbibtex %}
 
@@ -22,8 +22,10 @@ module Jekyll
     #    {% bibtex %} block per source file.
     Options = "-nofooter -noheader -use-table -nokeywords -nokeys -nodoc"
 
-    # The Bibtex style
-    Style = "_plugins/style.bst"
+    def initialize(tag_name, style, tokens)
+      super
+      @style = style
+    end
 
     # Bibtex code may use {{ }} markups which interfere with liquid.
     # Therefore, we override parse to completely ignore the content
@@ -47,7 +49,7 @@ module Jekyll
       content = super.join
 
       # get the complete paths for the style file and the source file
-      stylepath = File.join(context['site']['source'], Style)
+      stylepath = File.join(context['site']['source'], @style)
       file = File.join(context['site']['destination'],context['page']['url'])
       dirname = File.dirname(file)
 
