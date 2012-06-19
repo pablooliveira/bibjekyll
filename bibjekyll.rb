@@ -41,7 +41,7 @@ module Jekyll
 
     def render(context)
       # get the content of the {% bibtex %} block
-      content = super.join
+      content = super.to_s
 
       # get the complete paths for the style file and the source file
       stylepath = File.join(context['site']['source'], @style)
