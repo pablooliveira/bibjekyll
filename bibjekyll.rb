@@ -70,6 +70,10 @@ module Jekyll
         # call bibtex2html
         system("bibtex2html #{Options} -s #{stylepath} -o #{basename} #{temp}")
 
+        if $? != 0
+            $stderr.puts("bibjekyll: bibtex2html invocation failed")
+        end
+
         # When appropriate merge the new and old bibsource files.
         if File.exists?(bibsource)
           File.open(temp, 'a') {|f| f.write(backup)}
