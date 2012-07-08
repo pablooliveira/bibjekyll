@@ -1,13 +1,14 @@
 This plugin interfaces [bibtex2html](http://www.lri.fr/~filliatr/bibtex2html/) with Jekyll
 to generate an html bibliography list from bibtex entries.
-For this to work, the bibtex entries must be enclosed in a special liquid block:
+For this to work, the bibtex entries must be enclosed in a special liquid Tag:
 
-    {% bibtex _plugins/style.bst %}
-      ....
-    {% endbibtex %}
+    {% bibtex _plugins/style.bst bibtex_file.bib %}
 
 where `_plugins/style.bst` is a bibtex style file (which you can, of course, 
-rename or move to another directory).
+rename or move to another directory)
+
+and `bibtex_file.bib` is a bibtex file (its path is relative to
+the jekyll source file including the bibtex tag). 
 
 Setup
 -----
@@ -36,6 +37,12 @@ License
 -------
 
 This plugin is released under the MIT License.
+
+Contributors
+------------
+
+[Diogo Gomes](http://www.diogogomes.com/) patched bibjekyll to use tags instead 
+of blocks.
 
 Contact
 -------
