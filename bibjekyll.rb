@@ -13,7 +13,7 @@ module Jekyll
 
   class BibtexTag < Liquid::Tag
     # The options that are passed to bibtex2html
-    Options = "-nofooter -noheader -use-table -nokeywords -nokeys -nodoc -dl"
+    Options = "-nofooter -noheader -nokeywords -nokeys -nodoc -dl"
 
     def split_params(params)
       params.split(" ").map(&:strip)
@@ -28,7 +28,6 @@ module Jekyll
     end
 
     def render(context)
-
       # get the complete paths for the style file and the source file
       stylepath = File.join(context['site']['source'], @style)
 
