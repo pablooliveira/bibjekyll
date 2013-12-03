@@ -44,6 +44,8 @@ Contributors
 [Diogo Gomes](http://www.diogogomes.com/) patched bibjekyll to use tags instead 
 of blocks.
 
+Contributions and Pull Requests are welcome.
+
 Contact
 -------
 
