@@ -1,4 +1,4 @@
-bibjekyll v0.1.0
+bibjekyll v0.1.1
 ----------------
 
 This plugin interfaces [bibtex2html](http://www.lri.fr/~filliatr/bibtex2html/) with Jekyll

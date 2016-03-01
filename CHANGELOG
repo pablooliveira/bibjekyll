@@ -1,3 +1,6 @@
+[v0.1.1] 2016/03/01
+	* Fix generation of backlinks in _bib.html files
+
 [v0.1.0] 2016/03/01
 	* Update bibjekyll so it works on jekyll 3.0.1
 
