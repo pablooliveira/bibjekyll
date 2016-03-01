@@ -52,11 +52,11 @@ module Jekyll
       # get the complete paths for the style file and the source file
       stylepath = File.join(context['site']['source'], @style)
 
-      sourcefile = File.join(context['site']['source'], context['page']['url'])
-      bib = File.join(File.dirname(sourcefile), @bibfile)
+      sourcedir = File.join(context['site']['source'], context['page']['dir'])
+      bib = File.join(sourcedir, @bibfile)
 
-      outputfile = File.join(context['site']['destination'], context['page']['url'])
-      outputdir = File.dirname(outputfile)
+      outputdir = File.join(context['site']['destination'], context['page']['dir'])
+      page_basename = File.basename(context['page']['name'])
 
 
       # ensure that the destination directory exists
@@ -86,9 +86,8 @@ module Jekyll
               # Read html formatted bib file
               content_bibhtml = IO.read(bibhtml)
               # determine the name of the file we are generating
-              page = File.basename(outputfile)
               # replace links to basename by page
-              content_bibhtml = content_bibhtml.gsub(outname, page)
+              content_bibhtml = content_bibhtml.gsub(outname, page_basename)
               # commit changes
               File.open(bibhtml, 'w') {|f| f.write(content_bibhtml)}
           end
