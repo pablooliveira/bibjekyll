@@ -1,3 +1,6 @@
+bibjekyll v0.1.0
+----------------
+
 This plugin interfaces [bibtex2html](http://www.lri.fr/~filliatr/bibtex2html/) with Jekyll
 to generate an html bibliography list from bibtex entries.
 For this to work, the bibtex entries must be enclosed in a special liquid Tag:
