@@ -56,8 +56,6 @@ module Jekyll
       bib = File.join(sourcedir, @bibfile)
 
       outputdir = File.join(context['site']['destination'], context['page']['dir'])
-      page_basename = File.basename(context['page']['name'])
-
 
       # ensure that the destination directory exists
       FileUtils.mkdir_p(outputdir)
@@ -87,7 +85,7 @@ module Jekyll
               content_bibhtml = IO.read(bibhtml)
               # determine the name of the file we are generating
               # replace links to basename by page
-              content_bibhtml = content_bibhtml.gsub(outname, page_basename)
+              content_bibhtml = content_bibhtml.gsub(outname, context['page']['url'])
               # commit changes
               File.open(bibhtml, 'w') {|f| f.write(content_bibhtml)}
           end
