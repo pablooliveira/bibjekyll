@@ -1,4 +1,4 @@
-# Copyright (c) 2010-2013 Pablo de Oliveira Castro and contributors 
+# Copyright (c) 2010-2016 Pablo de Oliveira Castro and contributors 
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
